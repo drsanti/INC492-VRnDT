@@ -1,8 +1,20 @@
 # How to
 
 ## Setup
-Open terminal in `root` directory and run `npm i`.
-Open terminal in `./app` directory and run `npm i`.
+Open terminal in `root` directory and run:
+
+```
+npm i
+npm link
+```
+
+
+
+Open terminal in `./app` directory and run 
+```
+npm i
+npm link bfs3d
+```
 
 
 ## Run Application
