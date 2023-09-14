@@ -1,0 +1,64 @@
+{
+	"name": "bfs3d",
+	"version": "0.0.2",
+	"type": "module",
+	"main": "./dist/bfs3d.umd.cjs",
+	"module": "./dist/bfs3d.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"import": "./dist/bfs3d.js",
+			"require": "./dist/bfs3d.umd.cjs"
+		}
+	},
+	"files": [
+		"dist"
+	],
+	"description": "This is a bfs3d package",
+	"author": "drsanti",
+	"license": "MIT",
+	"homepage": "bits-fusion.com",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/drsanti/bfs3d.git"
+	},
+	"bugs": {
+		"url": "https://github.com/drsanti/bfs3d/issues"
+	},
+	"keywords": [
+		"bits-fusion",
+		"3d",
+		"three.js",
+		"graphics",
+		"canvas"
+	],
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"@types/chroma-js": "^2.4.0",
+		"@types/node": "^20.4.4",
+		"@types/paho-mqtt": "^1.0.7",
+		"@types/three": "^0.154.0",
+		"autoprefixer": "^10.4.14",
+		"postcss": "^8.4.27",
+		"prettier": "^3.0.0",
+		"prettier-plugin-tailwindcss": "^0.4.1",
+		"tailwindcss": "^3.3.3",
+		"typescript": "^5.0.2",
+		"vite": "^4.4.5",
+		"vite-plugin-dts": "^3.3.1"
+	},
+	"dependencies": {
+		"@types/cannon": "^0.1.8",
+		"cannon-es": "^0.20.0",
+		"chroma-js": "^2.4.2",
+		"gsap": "^3.12.2",
+		"i": "^0.3.7",
+		"npm": "^9.8.1",
+		"paho-mqtt": "^1.1.0",
+		"three": "^0.154.0"
+	}
+}

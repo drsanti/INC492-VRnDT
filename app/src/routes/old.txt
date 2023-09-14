@@ -1,0 +1,110 @@
+
+<!-- <script lang="ts">
+	import {
+		ResourceLoader,
+		type CubeTextureDownloadInfo,
+		type Resources,
+		type ModelDownloadInfo,
+		Graphics,
+		type GLTF,
+		Plotter,
+		createTween
+	} from '@bfs/bfs3d';
+	import { onMount } from 'svelte';
+
+	onMount(async () => {
+		const resources: Resources = await ResourceLoader.getInstance('SvelteKit').load(
+			{
+				onProgress(info: CubeTextureDownloadInfo) {
+					//console.log(`${info.tag} ${info.loaded}/${info.total}`);
+				}
+			},
+			{
+				onProgress(info: ModelDownloadInfo) {
+					//console.log(`${info.path} ${info.percent}`);
+				}
+			}
+		);
+
+		const g1 = new Graphics(`container1`);
+		const g2 = new Graphics(`container2`);
+		const g3 = new Graphics(`container3`);
+
+		const clone = (glTF: GLTF, sceneIndex: number) => {
+			const group: THREE.Group = glTF.scenes[sceneIndex].clone();
+			glTF.scenes[sceneIndex].traverse((child: THREE.Object3D) => {
+				group.add(child.clone());
+			});
+			return group;
+		};
+
+		// const modelUri = '/static/models/cube1.glb';
+		// ModelLoader.getInstance().load(modelUri).then((data) => {
+		// 	g1.scene.add(clone(data.glTF, 2));
+		// 	g2.scene.add(clone(data.glTF, 2));
+		// 	g3.scene.add(clone(data.glTF, 2));
+
+		// 	// let tween1 = gsap.to("#container1", { rotation: -1, duration: 0.1, ease: "sine.inOut", yoyo: true, repeat: -1 });
+		// 	// tween1.play();
+		// });
+
+		const glTF = resources.glTFs[0];
+		const m1 = clone(glTF, 2);
+		g1.scene.add(m1);
+		g2.scene.add(clone(glTF, 2));
+		g3.scene.add(clone(glTF, 2));
+
+		// const textureRoot = `/static/textures/cube`;
+		// TextureLoader.getInstance().loadEnvMap(textureRoot, "bridge").then((data) => {
+		// 	console.log(data);
+		// 	g1.scene.environment = data;
+		// 	g1.scene.background = data;
+
+		// 	g2.scene.environment = data;
+		// 	g2.scene.background = data;
+
+		// 	g3.scene.environment = data;
+		// 	g3.scene.background = data;
+		// });
+
+		const env1 = resources.envMaps[0];
+		const env2 = resources.envMaps[0];
+		const env3 = resources.envMaps[0];
+		g1.scene.environment = env1;
+		g1.scene.background = env1;
+		g2.scene.environment = env2;
+		g2.scene.background = env2;
+		g3.scene.environment = env3;
+		g3.scene.background = env3;
+
+		const p = new Plotter(g1.topCanvas);
+
+		createTween({
+			startValue: 0,
+			endValue: Math.PI * 2,
+			ease: 'elastic',
+			duration: 2,
+			repeat: -1,
+			yoyo: true,
+			onUpdate: (data) => {
+				m1.rotation.y = data / 4 - Math.PI / 2;
+				p.plot(data);
+			},
+			onComplete: () => {
+				console.log('done');
+			}
+		});
+
+		// document.querySelectorAll('canvas').forEach((c) => {
+		// 	console.log((c.className = 'border-2 rounded-xl p-0 m-0 border-gray-500/50'));
+		// });
+	});
+</script>
+
+<div
+	class="flex w-screen h-screen justify-center items-center border-0 bg-black/50 p-0 m-0 box space-x-2"
+>
+	<div id="container1" class="flex w-[256px] h-[256px]" />
+	<div id="container2" class="flex w-[256px] h-[256px]" />
+	<div id="container3" class="flex w-[256px] h-[256px]" />
+</div> -->
