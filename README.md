@@ -1,21 +1,10 @@
-# How to
+# bits-fusion 3D library
 
-## Setup
-Open terminal in `root` directory and run:
+## How to use it?
 
-```
-npm i
-npm link
-```
+### Setup
+Open terminal and run `npm i` to install the library and all dependencies.
 
+### Run
+Open terminal and run `npm run dev`.
 
-
-Open terminal in `./app` directory and run 
-```
-npm i
-npm link bfs3d
-```
-
-
-## Run Application
-At the `./app` directory, run `npm run dev` to run the application.
