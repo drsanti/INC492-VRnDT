@@ -2,7 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { appEnd, appInit } from '../lib/main';
 	onMount(() => {
-		appInit();
+		appInit('SvelteKit');
 	});
 	onDestroy(() => {
 		appEnd();

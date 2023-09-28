@@ -39,7 +39,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"bfs3d": "^0.0.4",
+		"bfs3d": "^0.0.5",
 		"three": "^0.156.1"
 	}
 }

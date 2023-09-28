@@ -1,17 +1,17 @@
 import * as THREE from 'three';
-import { Graphics, Physics, ModelLoader, ResourceLoader, type Resources, type GLTF, Looper, type LooperParams, Animator } from 'bfs3d';
+import { Input, Graphics, Physics, ModelLoader, ResourceLoader, type Resources, type GLTF, Looper, type LooperParams, Animator, type DevFramework } from 'bfs3d';
 export { appInit, appEnd };
 
-const MODEL_PATH = `models/cubes.glb`;
-
+// const MODEL_PATH = `models/cubes.glb`;
+const MODEL_PATH = `models/ArmHydraulic.glb`;
 
 const renderLoop = (params: LooperParams) => {
-	params;
+	params
 }
 
-const initPhysics = (graphics: Graphics, glTF: GLTF) => {
-	Physics.getInstance().init(graphics).buildPhysics(glTF).getDebugger()?.hide();
-}
+// const initPhysics = (graphics: Graphics, glTF: GLTF) => {
+// 	Physics.getInstance().init(graphics).buildPhysics(glTF).getDebugger()?.hide();
+// }
 
 const initGraphics = (resources: Resources) => {
 	const graphics: Graphics = new Graphics(`container1`);
@@ -22,19 +22,27 @@ const initGraphics = (resources: Resources) => {
 	graphics.scene.environment = resources.envMaps[0];
 	graphics.camera.position.set(5, 5, 10);
 	graphics.camera.lookAt(new THREE.Vector3());
-	initPhysics(graphics, glTF);
 
 	//** Physics */
-	Looper.getInstance().onFrame(renderLoop);
+	// initPhysics(graphics, glTF);
 
 	//** Animator */
 	new Animator(glTF);
 
+	//** Loop */
+	Looper.getInstance().onFrame(renderLoop);
+
+
+	//** Keyboard */
+	Input.Keyboard.onKeyDown(null, (e) => {
+		console.log(e.key)
+	});
 }
 
-const appInit = async () => {
-	const resources: Resources = await ResourceLoader.getInstance('SvelteKit').load();
-	ModelLoader.getInstance()
+
+const appInit = async (framework: DevFramework) => {
+	const resources: Resources = await ResourceLoader.getInstance(framework).load();
+	ModelLoader.getInstance().setFramework(framework)
 		.load(MODEL_PATH)
 		.then((data) => {
 			resources.glTFs.push(data.glTF);
